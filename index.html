@@ -51,21 +51,10 @@ body{
   border-radius:50%;
   padding:5px;
   background:linear-gradient(45deg,#2b7cff,#00f0ff);
-  animation: float 3s ease-in-out infinite;
   position:relative;
   cursor:pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-img:hover{
-  transform: scale(1.1);
-  box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
+  transition: box-shadow 0.3s ease;
+  animation: float 3s ease-in-out infinite;
 }
 
 .profile-img img{
@@ -73,7 +62,16 @@ body{
   height:100%;
   border-radius:50%;
   object-fit:cover;
-  pointer-events:none; 
+  pointer-events:none;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover img{
+  transform: scale(1.1); 
+}
+
+.profile-img:hover{
+  box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
 }
 
 .online{
@@ -99,6 +97,12 @@ h2{
 @keyframes glow{
   from{ text-shadow:0 0 5px #2b7cff; }
   to{ text-shadow:0 0 15px #00f0ff; }
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
 
 #modal{
@@ -156,7 +160,6 @@ h2{
 </div>
 
 <script>
-
 const numCircles = 15;
 const circlesContainer = document.getElementById('circles-container');
 for(let i=0;i<numCircles;i++){
