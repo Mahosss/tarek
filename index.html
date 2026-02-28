@@ -24,6 +24,7 @@ body{
   position:relative;
 }
 
+/* ====== CIRCLES ====== */
 .circle{
   position:absolute;
   border-radius:50%;
@@ -38,16 +39,20 @@ body{
   100%{ transform:translateY(0) translateX(0) scale(1);}
 }
 
+/* ====== PROFILE ====== */
 .profile{
   text-align:center;
   z-index:2;
   position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
+/* الصورة الشخصية */
 .profile-img{
   width:150px;
   height:150px;
-  margin:0 auto 20px;
   border-radius:50%;
   padding:5px;
   background:linear-gradient(45deg,#2b7cff,#00f0ff);
@@ -56,6 +61,9 @@ body{
   transition: box-shadow 0.3s ease;
   animation: float 3s ease-in-out infinite;
   overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .profile-img img{
@@ -67,13 +75,16 @@ body{
   transition: transform 0.3s ease;
 }
 
+/* زوم داخلي عند المرور */
 .profile-img:hover img{
   transform: scale(1.15);
 }
+
 .profile-img:hover{
   box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
 }
 
+/* Online */
 .online{
   width:16px;
   height:16px;
@@ -81,12 +92,14 @@ body{
   border:3px solid #000;
   border-radius:50%;
   position:absolute;
-  bottom:12px;
-  right:12px;
+  bottom:10px;
+  right:10px;
+  z-index:3;
 }
 
+/* ====== الاسم بتأثير كتابة ====== */
 h2{
-  margin-top:10px;
+  margin-top:15px;
   font-size:26px;
   letter-spacing:3px;
   color:#6fb3ff;
@@ -95,12 +108,18 @@ h2{
   white-space:nowrap;
   border-right: 2px solid #6fb3ff;
   width:0;
-  animation: typing 2s steps(10) forwards;
+  animation: typing 2s steps(10) forwards, removeCursor 0.1s 2s forwards;
 }
 
+/* الكتابة */
 @keyframes typing{
   from{ width:0; }
-  to{ width:8ch; }
+  to{ width:8ch; } /* طول الاسم */
+}
+
+/* إزالة خط الكتابة بعد ظهور الاسم */
+@keyframes removeCursor{
+  to{ border-right: none; }
 }
 
 @keyframes float{
@@ -109,6 +128,7 @@ h2{
   100%{transform:translateY(0);}
 }
 
+/* ====== MODAL ====== */
 #modal{
   position:fixed;
   top:0;
