@@ -59,7 +59,7 @@ body{
   cursor:pointer;
   transition: box-shadow 0.3s ease;
   animation: float 3s ease-in-out infinite;
-  overflow:hidden;
+  overflow:visible; /* مهم عشان Online تظهر خارج الإطار قليلًا */
   display:flex;
   justify-content:center;
   align-items:center;
@@ -87,12 +87,12 @@ body{
   width:16px;
   height:16px;
   background:#1aff00;
-  border:3px solid #000; /* لإظهارها على الخلفية */
+  border:3px solid #000;
   border-radius:50%;
   position:absolute;
-  bottom:10px;
-  right:10px;
-  z-index:5; /* أعلى من الصورة */
+  bottom:-3px;  /* على حافة الأسفل */
+  right:-3px;   /* على حافة اليمين */
+  z-index:5;
 }
 
 /* ====== الاسم بتأثير كتابة ====== */
