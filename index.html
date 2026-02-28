@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarek</title>
-
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family: Arial, sans-serif;
+  user-select:none; 
 }
 
 body{
@@ -27,13 +27,14 @@ body{
 .circle{
   position:absolute;
   border-radius:50%;
-  background:rgba(43,124,255,0.5);
+  background:rgba(43,124,255,0.3);
+  z-index:1;
   animation: floatCircle linear infinite;
 }
 
 @keyframes floatCircle{
   0%{ transform:translateY(0) translateX(0) scale(1);}
-  50%{ transform:translateY(-150px) translateX(50px) scale(0.8);}
+  50%{ transform:translateY(-100px) translateX(50px) scale(0.8);}
   100%{ transform:translateY(0) translateX(0) scale(1);}
 }
 
@@ -52,6 +53,7 @@ body{
   background:linear-gradient(45deg,#2b7cff,#00f0ff);
   animation: float 3s ease-in-out infinite;
   position:relative;
+  cursor:pointer;
 }
 
 @keyframes float{
@@ -65,6 +67,7 @@ body{
   height:100%;
   border-radius:50%;
   object-fit:cover;
+  pointer-events:none; 
 }
 
 .online{
@@ -91,34 +94,91 @@ h2{
   from{ text-shadow:0 0 5px #2b7cff; }
   to{ text-shadow:0 0 15px #00f0ff; }
 }
+
+#modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px); 
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 0.3s ease;
+  z-index:10;
+}
+
+#modal img{
+  width:60%;
+  max-width:500px;
+  height:auto;
+  border-radius:15px;
+  object-fit:cover;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+  transform:scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+#modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+#modal.show img{
+  transform:scale(1);
+}
 </style>
 </head>
-
 <body>
 
+<div id="circles-container"></div>
+
+<div class="profile">
+  <div class="profile-img" id="profilePic">
+    <img src="https://img.alfrsantv.com/img/f177224568527491.jpg" alt="Profile">
+    <span class="online"></span>
+  </div>
+  <h2>Tarek</h2>
+</div>
+
+<div id="modal">
+  <img src="" alt="Profile Large">
+</div>
+
 <script>
-const numCircles = 20;
+const numCircles = 15;
+const circlesContainer = document.getElementById('circles-container');
 for(let i=0;i<numCircles;i++){
   const circle = document.createElement('div');
   circle.classList.add('circle');
   const size = Math.random()*15 + 5; 
   circle.style.width = size+'px';
   circle.style.height = size+'px';
-  circle.style.left = Math.random()*100 + 'vw';
-  circle.style.bottom = Math.random()*100 + 'vh';
+  // ضعها حول منتصف الشاشة تقريباً
+  circle.style.left = `calc(50% + ${Math.random()*200 - 100}px)`;
+  circle.style.top = `calc(50% + ${Math.random()*200 - 100}px)`;
   circle.style.animationDuration = (Math.random()*5 + 5)+'s';
   circle.style.background = `rgba(43,124,255,${Math.random()*0.5 +0.2})`;
-  document.body.appendChild(circle);
+  circlesContainer.appendChild(circle);
 }
-</script>
 
-<div class="profile">
-  <div class="profile-img">
-    <img src="https://img.alfrsantv.com/img/f177224568527491.jpg" alt="Profile">
-    <span class="online"></span>
-  </div>
-  <h2>Tarek</h2>
-</div>
+const profilePic = document.getElementById('profilePic');
+const modal = document.getElementById('modal');
+const modalImg = modal.querySelector('img');
+
+profilePic.addEventListener('click',()=>{
+  modalImg.src = profilePic.querySelector('img').src;
+  modal.classList.add('show');
+});
+
+modal.addEventListener('click',()=>{
+  modal.classList.remove('show');
+});
+</script>
 
 </body>
 </html>
