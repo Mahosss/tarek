@@ -23,21 +23,32 @@ html, body{
 
 body{
   background: radial-gradient(circle at top left, #0b1c2d, #000);
-  display:flex;
-  justify-content:center;
-  align-items:center;
   color:#fff;
-  overflow:hidden;
+  overflow-x:hidden;
 }
 
-/* Wrapper */
+/* =================== VIDEOS =================== */
+.videos{
+  display:flex;
+  gap:15px;
+  padding:20px;
+  overflow-x:auto;
+}
+
+.videos iframe{
+  min-width:260px;
+  height:150px;
+  border-radius:14px;
+  border:2px solid #1f3b5f;
+}
+
+/* =================== WRAPPER =================== */
 .wrapper{
-  width:100%;
-  max-width:1200px;
   text-align:center;
+  margin-top:30px;
 }
 
-/* Stories */
+/* =================== STORIES =================== */
 .stories{
   display:flex;
   justify-content:center;
@@ -64,7 +75,7 @@ body{
   left:8px;
 }
 
-/* Profile Image */
+/* =================== PROFILE IMAGE =================== */
 .profile-img{
   width:160px;
   height:160px;
@@ -73,6 +84,13 @@ body{
   padding:5px;
   background:linear-gradient(45deg,#2b7cff,#00f0ff);
   position:relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+  100%{ transform:translateY(0); }
 }
 
 .profile-img img{
@@ -82,7 +100,7 @@ body{
   object-fit:cover;
 }
 
-/* Online Dot */
+/* online */
 .online{
   width:18px;
   height:18px;
@@ -94,19 +112,34 @@ body{
   right:14px;
 }
 
-/* Name */
+/* =================== NAME EFFECT =================== */
 h2{
-  margin:22px 0;
-  letter-spacing:4px;
+  margin:25px 0;
+  font-size:28px;
+  letter-spacing:5px;
   color:#6fb3ff;
+  text-shadow:
+    0 0 10px #2b7cff,
+    0 0 20px #2b7cff;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Buttons */
+@keyframes glow{
+  from{
+    text-shadow:0 0 10px #2b7cff;
+  }
+  to{
+    text-shadow:0 0 25px #00f0ff;
+  }
+}
+
+/* =================== BUTTONS =================== */
 .buttons{
   display:flex;
   justify-content:center;
   gap:15px;
   flex-wrap:wrap;
+  margin-bottom:40px;
 }
 
 .buttons a{
@@ -119,7 +152,7 @@ h2{
   align-items:center;
   gap:8px;
   border:1px solid #1f3b5f;
-  transition:0.3s;
+  transition:.3s;
 }
 
 .buttons a:hover{
@@ -130,9 +163,18 @@ h2{
 
 <body>
 
+<!-- =================== YOUTUBE VIDEOS =================== -->
+<div class="videos">
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID5" allowfullscreen></iframe>
+</div>
+
 <div class="wrapper">
 
-  <!-- Stories -->
+  <!-- STORIES -->
   <div class="stories">
     <div class="story"></div>
     <div class="story"></div>
@@ -141,15 +183,15 @@ h2{
     <div class="story"></div>
   </div>
 
-  <!-- Profile -->
+  <!-- PROFILE -->
   <div class="profile-img">
-    <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Profile">
+    <img src="https://i.imgur.com/8Km9tLL.jpg">
     <span class="online"></span>
   </div>
 
   <h2>AHMED</h2>
 
-  <!-- Buttons -->
+  <!-- BUTTONS -->
   <div class="buttons">
     <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
     <a href="#"><i class="fab fa-github"></i> GitHub</a>
