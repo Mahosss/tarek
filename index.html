@@ -151,8 +151,9 @@ h2{
   padding:5px;
   transform: scale(0.8);
   transition: transform 0.3s ease;
-  max-width:30%;      /* اصغر عرض */
-  max-height:70%;     /* اعلى ارتفاع لتكون رأسية */
+  width:auto;
+  max-width:250px;     /* عرض صغير */
+  max-height:400px;    /* ارتفاع أكبر، رأسية */
   display:flex;
   justify-content:center;
   align-items:center;
@@ -169,10 +170,10 @@ h2{
 
 #modal img{
   width:auto;
-  height:100%;   /* رأسية كاملة، يحافظ على الرأس ظاهر */
+  height:100%;   /* طول كامل داخل الـ modal */
   display:block;
   border-radius:15px;
-  object-fit:cover;
+  object-fit:contain;  /* يحافظ على الرأس كامل */
 }
 </style>
 </head>
