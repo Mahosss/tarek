@@ -59,7 +59,7 @@ body{
   cursor:pointer;
   transition: box-shadow 0.3s ease;
   animation: float 3s ease-in-out infinite;
-  overflow:visible; /* مهم عشان Online تظهر خارج الإطار قليلًا */
+  overflow:visible; /* Online داخل الإطار */
   display:flex;
   justify-content:center;
   align-items:center;
@@ -75,14 +75,14 @@ body{
 }
 
 .profile-img:hover img{
-  transform: scale(1.15);
+  transform: scale(1.1); /* زوم داخلي بسيط */
 }
 
 .profile-img:hover{
-  box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
+  box-shadow: 0 0 25px 5px rgba(43,124,255,0.7); /* توهج خفيف عند المرور */
 }
 
-/* ====== Online على الصورة الدائرية الأساسية ====== */
+/* ====== Online داخل الإطار الخارجي ====== */
 .profile-img .online{
   width:16px;
   height:16px;
@@ -90,9 +90,8 @@ body{
   border:3px solid #000;
   border-radius:50%;
   position:absolute;
-  bottom:0;
-  right:0;
-  transform: translate(50%,50%); /* نصف العلامة خارج الدائرة */
+  bottom:5px; /* داخل الإطار الخارجي */
+  right:5px;  /* داخل الإطار الخارجي */
   z-index:5;
 }
 
@@ -155,10 +154,10 @@ h2{
   transition: transform 0.3s ease;
   width:auto;
   max-width:250px;
-  max-height:400px;    /* رأسية */
+  max-height:400px; /* رأسية */
   display:flex;
   justify-content:center;
-  align-items:flex-start;  /* يبدأ من الأعلى */
+  align-items:flex-start; /* يبدأ من الأعلى */
 }
 
 #modal.show{
@@ -176,7 +175,7 @@ h2{
   height:100%;
   display:block;
   border-radius:15px;
-  object-fit:cover;  /* يظهر الرأس ويقص الأسفل */
+  object-fit:cover; /* يظهر الرأس ويقص الأسفل */
 }
 
 /* Online داخل modal */
@@ -200,7 +199,7 @@ h2{
 <div class="profile">
   <div class="profile-img" id="profilePic">
     <img src="https://img.alfrsantv.com/img/f177224568527491.jpg" alt="Profile">
-    <span class="online"></span> <!-- Online على الصورة الدائرية الأساسية -->
+    <span class="online"></span> <!-- Online داخل الإطار الخارجي -->
   </div>
   <h2>Tarek</h2>
 </div>
