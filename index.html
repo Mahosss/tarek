@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile UI</title>
+<title>Profile</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -15,61 +15,56 @@
   font-family: Arial, sans-serif;
 }
 
-html,body{
-  width:100%;
-  height:100%;
-}
-
 body{
-  background: radial-gradient(circle at top left,#0b1c2d,#000);
+  background:#000;
   color:#fff;
   overflow-x:hidden;
 }
 
-/* ====== WHATSAPP STATUS STYLE VIDEOS ====== */
+/* ====== WHATSAPP STATUS STYLE ====== */
 .stories{
   display:flex;
-  gap:15px;
-  padding:20px;
+  gap:14px;
+  padding:16px;
   overflow-x:auto;
 }
 
-.story-video{
-  min-width:110px;
-  height:195px; /* 9:16 */
-  border-radius:16px;
+.story{
+  min-width:120px;
+  height:210px;   /* الطول الحقيقي زي الواتس */
+  border-radius:18px;
   overflow:hidden;
+  background:#111;
   border:2px solid #2b7cff;
-  background:#000;
+  position:relative;
 }
 
-.story-video iframe{
+.story iframe{
   width:100%;
   height:100%;
   border:none;
 }
 
-/* ====== MAIN WRAPPER ====== */
-.wrapper{
+/* ====== PROFILE ====== */
+.profile{
   text-align:center;
-  margin-top:20px;
+  margin-top:10px;
 }
 
-/* ====== PROFILE IMAGE FLOAT ====== */
 .profile-img{
-  width:160px;
-  height:160px;
-  margin:0 auto;
+  width:150px;
+  height:150px;
+  margin:20px auto;
   border-radius:50%;
   padding:5px;
   background:linear-gradient(45deg,#2b7cff,#00f0ff);
-  position:relative;
   animation: float 3s ease-in-out infinite;
+  position:relative;
 }
 
 @keyframes float{
   0%{transform:translateY(0);}
-  50%{transform:translateY(-12px);}
+  50%{transform:translateY(-10px);}
   100%{transform:translateY(0);}
 }
 
@@ -81,24 +76,24 @@ body{
 }
 
 .online{
-  width:18px;
-  height:18px;
-  background:#22ff00;
+  width:16px;
+  height:16px;
+  background:#1aff00;
   border:3px solid #000;
   border-radius:50%;
   position:absolute;
-  bottom:14px;
-  right:14px;
+  bottom:12px;
+  right:12px;
 }
 
 /* ====== NAME EFFECT ====== */
 h2{
-  margin:22px 0;
+  margin-top:10px;
+  font-size:26px;
   letter-spacing:4px;
-  font-size:28px;
   color:#6fb3ff;
-  text-shadow:0 0 12px #2b7cff;
-  animation: glow 2s ease-in-out infinite alternate;
+  text-shadow:0 0 10px #2b7cff;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow{
@@ -110,20 +105,17 @@ h2{
 .buttons{
   display:flex;
   justify-content:center;
-  gap:15px;
+  gap:12px;
+  margin:25px 0;
   flex-wrap:wrap;
-  margin-bottom:40px;
 }
 
 .buttons a{
-  padding:12px 22px;
-  border-radius:30px;
-  background:#0b1c2d;
+  padding:10px 22px;
+  border-radius:25px;
+  background:#111;
   color:#fff;
   text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:8px;
   border:1px solid #1f3b5f;
   transition:.3s;
 }
@@ -136,26 +128,17 @@ h2{
 
 <body>
 
-<!-- ====== TOP WHATSAPP-LIKE STATUS VIDEOS ====== -->
+<!-- ====== حالات واتس بالطول ====== -->
 <div class="stories">
-  <div class="story-video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
-  </div>
-  <div class="story-video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
-  </div>
-  <div class="story-video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
-  </div>
-  <div class="story-video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
-  </div>
-  <div class="story-video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID5" allowfullscreen></iframe>
-  </div>
+  <div class="story"><iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe></div>
+  <div class="story"><iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe></div>
+  <div class="story"><iframe src="https://www.youtube.com/embed/VIDEO_ID3"></iframe></div>
+  <div class="story"><iframe src="https://www.youtube.com/embed/VIDEO_ID4"></iframe></div>
+  <div class="story"><iframe src="https://www.youtube.com/embed/VIDEO_ID5"></iframe></div>
 </div>
 
-<div class="wrapper">
+<!-- ====== البروفايل ====== -->
+<div class="profile">
 
   <div class="profile-img">
     <img src="https://i.imgur.com/8Km9tLL.jpg">
@@ -165,9 +148,9 @@ h2{
   <h2>AHMED</h2>
 
   <div class="buttons">
-    <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-    <a href="#"><i class="fab fa-comments"></i> Forum</a>
+    <a href="#">Facebook</a>
+    <a href="#">GitHub</a>
+    <a href="#">Forum</a>
   </div>
 
 </div>
