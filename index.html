@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile UI</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle at top left,#0b1c2d,#000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+}
+
+.profile-container{
+  width:100%;
+  text-align:center;
+}
+
+/* Stories */
+.stories{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:40px;
+}
+
+.story{
+  width:70px;
+  height:120px;
+  border-radius:14px;
+  background:linear-gradient(180deg,#2b7cff,#0a1a2f);
+  position:relative;
+}
+
+.story::after{
+  content:'';
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  border:3px solid #2b7cff;
+  position:absolute;
+  top:8px;
+  left:8px;
+}
+
+/* Profile Image */
+.profile-img{
+  width:150px;
+  height:150px;
+  margin:0 auto;
+  border-radius:50%;
+  padding:5px;
+  background:linear-gradient(45deg,#2b7cff,#00f0ff);
+  position:relative;
+}
+
+.profile-img img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.online{
+  width:18px;
+  height:18px;
+  background:#2aff00;
+  border:3px solid #000;
+  border-radius:50%;
+  position:absolute;
+  bottom:15px;
+  right:15px;
+}
+
+/* Name */
+h2{
+  margin:20px 0;
+  letter-spacing:3px;
+  color:#6fb3ff;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.buttons a{
+  padding:12px 22px;
+  border-radius:30px;
+  background:#0b1c2d;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #1f3b5f;
+  transition:0.3s;
+}
+
+.buttons a:hover{
+  background:#2b7cff;
+}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="profile-container">
+
+    <!-- Stories -->
+    <div class="stories">
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+    </div>
+
+    <!-- Profile Image -->
+    <div class="profile-img">
+      <img src="https://i.imgur.com/8Km9tLL.jpg" alt="profile">
+      <span class="online"></span>
+    </div>
+
+    <!-- Name -->
+    <h2>AHMED</h2>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="#" target="_blank">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+
+      <a href="#" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+
+      <a href="#" target="_blank">
+        <i class="fas fa-comments"></i> Forum
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
