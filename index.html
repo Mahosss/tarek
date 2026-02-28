@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarek</title>
 <style>
-*{
+* {
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -24,6 +24,7 @@ body{
   position:relative;
 }
 
+/* ====== CIRCLES ====== */
 .circle{
   position:absolute;
   border-radius:50%;
@@ -38,12 +39,14 @@ body{
   100%{ transform:translateY(0) translateX(0) scale(1);}
 }
 
+/* ====== PROFILE ====== */
 .profile{
   text-align:center;
   z-index:2;
   position:relative;
 }
 
+/* الصورة الشخصية */
 .profile-img{
   width:150px;
   height:150px;
@@ -55,7 +58,7 @@ body{
   cursor:pointer;
   transition: box-shadow 0.3s ease;
   animation: float 3s ease-in-out infinite;
-  overflow:hidden; 
+  overflow:hidden;
 }
 
 .profile-img img{
@@ -67,11 +70,12 @@ body{
   transition: transform 0.3s ease;
 }
 
+/* زوم داخلي عند المرور */
 .profile-img:hover img{
-  transform: scale(1.15); 
-
+  transform: scale(1.15);
+}
 .profile-img:hover{
-  box-shadow: 0 0 20px 5px rgba(43,124,255,0.7); 
+  box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
 }
 
 .online{
@@ -85,6 +89,7 @@ body{
   right:12px;
 }
 
+/* ====== الاسم بتأثير كتابة ====== */
 h2{
   margin-top:10px;
   font-size:26px;
@@ -100,7 +105,7 @@ h2{
 
 @keyframes typing{
   from{ width:0; }
-  to{ width:8ch; } 
+  to{ width:8ch; }
 }
 
 @keyframes float{
@@ -109,6 +114,7 @@ h2{
   100%{transform:translateY(0);}
 }
 
+/* ====== MODAL ====== */
 #modal{
   position:fixed;
   top:0;
@@ -128,13 +134,14 @@ h2{
 
 #modal-content{
   border:5px solid #2b7cff;
-  border-radius:15px;
+  border-radius:20px;
   overflow:hidden;
-  background: rgba(255,255,255,0.05); 
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
   padding:5px;
   transform: scale(0.8);
   transition: transform 0.3s ease;
+  max-width:90%;
 }
 
 #modal.show{
@@ -150,13 +157,14 @@ h2{
   width:100%;
   height:auto;
   display:block;
-  border-radius:10px;
+  border-radius:15px;
   object-fit:cover;
 }
 </style>
 </head>
 <body>
 
+<!-- ====== CIRCLES ====== -->
 <div id="circles-container"></div>
 
 <div class="profile">
@@ -167,6 +175,7 @@ h2{
   <h2>Tarek</h2>
 </div>
 
+<!-- ====== MODAL ====== -->
 <div id="modal">
   <div id="modal-content">
     <img src="" alt="Profile Large">
@@ -174,6 +183,7 @@ h2{
 </div>
 
 <script>
+// الكور خلف الصورة فقط
 const numCircles = 15;
 const circlesContainer = document.getElementById('circles-container');
 for(let i=0;i<numCircles;i++){
@@ -189,6 +199,7 @@ for(let i=0;i<numCircles;i++){
   circlesContainer.appendChild(circle);
 }
 
+// تكبير الصورة عند الضغط
 const profilePic = document.getElementById('profilePic');
 const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modal-content');
