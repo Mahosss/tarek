@@ -24,6 +24,7 @@ body{
   position:relative;
 }
 
+/* ====== CIRCLES ====== */
 .circle{
   position:absolute;
   border-radius:50%;
@@ -38,6 +39,7 @@ body{
   100%{ transform:translateY(0) translateX(0) scale(1);}
 }
 
+/* ====== PROFILE ====== */
 .profile{
   text-align:center;
   z-index:2;
@@ -80,6 +82,7 @@ body{
   box-shadow: 0 0 20px 5px rgba(43,124,255,0.7);
 }
 
+/* Online ثابت على الدائرة */
 .online{
   width:16px;
   height:16px;
@@ -92,6 +95,7 @@ body{
   z-index:3;
 }
 
+/* ====== الاسم بتأثير كتابة ====== */
 h2{
   margin-top:15px;
   font-size:26px;
@@ -120,6 +124,7 @@ h2{
   100%{transform:translateY(0);}
 }
 
+/* ====== MODAL ====== */
 #modal{
   position:fixed;
   top:0;
@@ -146,8 +151,8 @@ h2{
   padding:5px;
   transform: scale(0.8);
   transition: transform 0.3s ease;
-  max-width:40%;      
-  max-height:70%;     
+  max-width:30%;      /* اصغر عرض */
+  max-height:70%;     /* اعلى ارتفاع لتكون رأسية */
   display:flex;
   justify-content:center;
   align-items:center;
@@ -164,7 +169,7 @@ h2{
 
 #modal img{
   width:auto;
-  height:100%;   
+  height:100%;   /* رأسية كاملة، يحافظ على الرأس ظاهر */
   display:block;
   border-radius:15px;
   object-fit:cover;
@@ -190,6 +195,7 @@ h2{
 </div>
 
 <script>
+// الكور خلف الصورة فقط
 const numCircles = 15;
 const circlesContainer = document.getElementById('circles-container');
 for(let i=0;i<numCircles;i++){
@@ -205,6 +211,7 @@ for(let i=0;i<numCircles;i++){
   circlesContainer.appendChild(circle);
 }
 
+// تكبير الصورة عند الضغط بشكل رأسى صغير
 const profilePic = document.getElementById('profilePic');
 const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modal-content');
