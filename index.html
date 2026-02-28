@@ -143,6 +143,7 @@ h2{
 }
 
 #modal-content{
+  position:relative;
   border:5px solid #2b7cff;
   border-radius:20px;
   overflow:hidden;
@@ -152,11 +153,11 @@ h2{
   transform: scale(0.8);
   transition: transform 0.3s ease;
   width:auto;
-  max-width:250px;     /* عرض صغير */
-  max-height:400px;    /* ارتفاع أكبر، رأسية */
+  max-width:250px;
+  max-height:400px;    /* رأسية */
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;  /* يبدأ من الأعلى */
 }
 
 #modal.show{
@@ -168,12 +169,26 @@ h2{
   transform: scale(1);
 }
 
+/* الصورة داخل modal */
 #modal img{
   width:auto;
-  height:100%;   /* طول كامل داخل الـ modal */
+  height:100%;
   display:block;
   border-radius:15px;
-  object-fit:contain;  /* يحافظ على الرأس كامل */
+  object-fit:cover;  /* يظهر الرأس ويقص الأسفل */
+}
+
+/* Online داخل modal */
+#modal .online{
+  width:16px;
+  height:16px;
+  background:#1aff00;
+  border:3px solid #000;
+  border-radius:50%;
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:5;
 }
 </style>
 </head>
@@ -192,6 +207,7 @@ h2{
 <div id="modal">
   <div id="modal-content">
     <img src="" alt="Profile Large">
+    <span class="online"></span> <!-- Online تظهر على الصورة المكبرة -->
   </div>
 </div>
 
@@ -212,7 +228,7 @@ for(let i=0;i<numCircles;i++){
   circlesContainer.appendChild(circle);
 }
 
-// تكبير الصورة عند الضغط بشكل رأسى صغير
+// تكبير الصورة عند الضغط بشكل رأسي، يظهر الرأس فقط
 const profilePic = document.getElementById('profilePic');
 const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modal-content');
